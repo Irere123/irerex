@@ -1,0 +1,32 @@
+---
+ type Props =  {
+  name: string
+ }
+
+ const { name} = Astro.props
+---
+
+
+<div class="tag">
+    <p>{name}</p>
+</div>
+
+<style>
+    .tag {
+        display: flex;
+        cursor: pointer;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid rgba(var(--gray));
+        text-decoration: none;
+        color: rgba(var(--gray));
+        padding: 0px 5px;
+        border-radius: 5px;
+        font-weight: bold;
+        height: 30px;
+    }
+
+    .tag:hover {
+        background-color: #f4f4f4;
+    }
+</style>

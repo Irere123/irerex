@@ -1,0 +1,66 @@
+---
+import HeaderLink from './HeaderLink.astro';
+import { SITE_TITLE } from '../consts';
+import SvgFolder from "./SvgFolder.astro"
+import SvgFeather from "./SvgFeather.astro"
+import SvgFold from './SvgFold.astro';
+import SvgTwitter from './SvgTwitter.astro';
+import SvgSun from './SvgSun.astro';
+---
+
+<header>
+	<nav>
+		<h2><a href="/">{SITE_TITLE}</a></h2>
+		<div class="internal-links">
+			<div class="links">
+				<!-- <HeaderLink href="/"><SvgFold/>Blog</HeaderLink> -->
+			<!-- <HeaderLink href="/design"><SvgFeather /> Design</HeaderLink> -->
+			<!-- <HeaderLink href="/projects"><SvgFolder /> Projects</HeaderLink> -->
+			</div>
+			<div class="icons">
+				<SvgTwitter />
+				<SvgSun />
+			</div>
+		</div>
+	</nav>
+</header>
+<style>
+	header {
+		margin: 0;
+		padding: 0 5rem;
+		position: sticky;
+		top: 0;
+		background: white;
+		border: 2px solid #f4f4f4;
+	}
+
+	h2 > * {
+		color: black;
+		font-size: 28px;
+		text-decoration: none;
+	}
+
+	nav {
+		display: flex;
+		align-items: center;
+	}
+
+	.internal-links {
+		display: flex;
+		flex: 1;
+		justify-content: end;
+		gap: 2rem;
+		font-size: 18px;
+	}
+
+	.internal-links > .links {
+		display: flex;
+		gap: 1rem;
+		
+	}
+.internal-links > .icons {
+	display: flex;
+	gap: 1rem;
+}
+
+</style>

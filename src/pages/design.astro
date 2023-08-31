@@ -1,0 +1,41 @@
+---
+import ArticleCard from "../components/ArticleCard.astro";
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import { getCollection } from "astro:content";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
+
+const posts = (await getCollection("design")).sort(
+  (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+);
+---
+
+<!doctype html>
+<html>
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <h3>Design</h3>
+      <p>
+        This is where you can find all the technical written content on Rust,
+        Elixir, and Typescript Languages!
+      </p>
+      <p>{posts.length} posts</p>
+      <section>
+        {
+          posts.map((post) => (
+            <ArticleCard
+              href={`/design/${post.slug}`}
+              description={post.data.description}
+              pubDate={post.data.pubDate}
+              title={post.data.title}
+            />
+          ))
+        }
+      </section>
+    </main>
+  </body>
+</html>

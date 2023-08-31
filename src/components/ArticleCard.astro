@@ -1,0 +1,43 @@
+---
+import FormattedDate from './FormattedDate.astro';
+import SvgClock from './SvgClock.astro';
+
+  type Props   = {
+    title: string
+    description: string
+    pubDate: any
+    href: string
+  };
+
+  const { description, pubDate, title, href} =  Astro.props
+---
+
+<a href={href} class="article_card">
+    <p class="article_card_title">{title}</p>
+    <p>{description}</p>
+    <div class="article_card_date">
+        <SvgClock />
+        <FormattedDate date={pubDate}/>
+    </div>
+</a>
+
+<style>
+    .article_card {
+        display: flex;
+        flex-direction: column;
+        margin:0;
+        text-decoration: none;
+        color: black;
+    }
+
+    .article_card_title {
+        font-size: 20px;
+        font-weight: bolder;
+        text-decoration: underline;
+    }
+
+    .article_card_date {
+        display: flex;
+        gap: 5px;
+    }
+</style>
